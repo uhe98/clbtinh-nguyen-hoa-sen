@@ -72,7 +72,7 @@ let membersList = [
     { id: 3, hoTen: 'Đ/c Nguyễn Văn Thuận', chucVu: 'Phó Chủ nhiệm CLB', banNganh: 'Ban Điều Hành', cauNoi: 'Đồng lòng cống hiến, lan tỏa sức trẻ tình nguyện.', hinhAnh: 'images/thuan.jpg' },
     { id: 4, hoTen: 'Đ/c Trần Kim Khánh', chucVu: 'Trưởng Ban Nhiệm Vụ', banNganh: 'Ban Nhiệm Vụ', cauNoi: 'Sẵn sàng nhận nhiệm vụ, sẵn sàng cống hiến hết mình.', hinhAnh: 'images/khanh.png' },
     { id: 5, hoTen: 'Đ/c Lê Thanh Minh', chucVu: 'Trưởng Ban Phong Trào - Truyền Thông', banNganh: 'Ban Truyền Thông', cauNoi: 'Lan tỏa câu chuyện tử tế đến với hàng triệu trái tim.', hinhAnh: 'images/minh.jpg' },
-    { id: 6, hoTen: 'Đ/c Nguyễn Đức Anh', chucVu: 'Trưởng Ban Thể Thao', banNganh: 'Ban Thể Thao', cauNoi: 'Rèn luyện thể lực, thắt chặt tinh thần đồng đội nhiệt huyết.', hinhAnh: 'images/danh.jpg' },
+    { id: 6, hoTen: 'Đ/c Nguyễn Đức Anh', chucVu: 'Trưởng Ban Thể Thao', banNganh: 'Ban Thể Thao', cauNoi: 'Rèn luyện thể lực, thắt chặt tinh thần đồng đội nhiệt huyết.', hinhAnh: 'images/anh.jpg' },
     { id: 7, hoTen: 'Đ/c Chu Thị Phúc', chucVu: 'Phụ trách Tài Chính - Ban Thủ Quỹ - Bán Hàng', banNganh: 'Ban Thủ Quỹ - Bán Hàng', cauNoi: 'Minh bạch, cẩn trọng trong từng nguồn quỹ từ thiện.', hinhAnh: 'images/phuc.jpg' }
 ];
 

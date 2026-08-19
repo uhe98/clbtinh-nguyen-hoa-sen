@@ -643,7 +643,7 @@ async function loadMembers() {
             'nguyễn văn thuận': 'images/thuan.jpg',
             'trần kim khánh': 'images/khanh.png',
             'lê thanh minh': 'images/minh.jpg',
-            'nguyễn đức anh': 'images/danh.jpg',
+            'nguyễn đức anh': 'images/anh.jpg',
             'chu thị phúc': 'images/phuc.jpg'
         };
 
