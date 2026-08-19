@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CLB TÌNH NGUYỆN HOA SEN - TDU</title>
+    <meta name="description" content="Trang web chính thức của CLB TÌNH NGUYỆN HOA SEN - TDU tại TP. Hải Phòng. Đội ngũ 50+ tình nguyện viên, 20+ chiến dịch hoàn thành, 100+ suất quà trao tặng.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ====================================================================
+         HEADER (THANH MENU NGANG & NAV MOBILE RESPONSIVE TỐI ƯU 100%)
+         ==================================================================== -->
+    <header class="header" id="header">
+        <div class="container header-container">
+            <a href="#hero" class="logo">
+                <div class="logo-wrapper">
+                    <img src="images/logo.png" alt="Logo CLB Tình Nguyện Hoa Sen" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="logo-fallback-svg" style="display: none;">
+                        <svg viewBox="0 0 100 100" width="38" height="38" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="50" r="48" fill="#075936" stroke="#f59e0b" stroke-width="3"/>
+                            <path d="M50 20 C60 38, 75 45, 80 60 C75 75, 60 80, 50 82 C40 80, 25 75, 20 60 C25 45, 40 38, 50 20 Z" fill="#e05297"/>
+                            <path d="M50 28 C57 42, 68 48, 72 60 C68 70, 57 74, 50 76 C43 74, 32 70, 28 60 C32 48, 43 42, 50 28 Z" fill="#ffffff"/>
+                            <circle cx="50" cy="62" r="6" fill="#f59e0b"/>
+                        </svg>
+                    </span>
+                </div>
+                <span class="js-clb-name logo-text">CLB TÌNH NGUYỆN HOA SEN - TDU</span>
+            </a>
+
+            <!-- Thanh Menu Ngang & Drawer Mobile Smooth -->
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#hero" class="nav-link active">Trang chủ</a></li>
+                    <li><a href="#about" class="nav-link">Giới thiệu</a></li>
+                    <li><a href="#activities" class="nav-link">Hoạt động</a></li>
+                    <li><a href="#members" class="nav-link">Thành viên</a></li>
+                    <li><a href="#news" class="nav-link">Tin tức</a></li>
+                    <li><a href="#contact" class="nav-link">Liên hệ</a></li>
+                </ul>
+            </nav>
+
+            <!-- Gộp Nút Đăng nhập góc phải Header -->
+            <div class="header-actions">
+                <button class="btn btn-secondary" id="openUnifiedLoginBtn">🔑 Đăng nhập / Đăng ký</button>
+                <div class="mobile-toggle" aria-label="Mở menu di động">☰</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ====================================================================
+         BANNER CHÍNH (HERO CAROUSEL TRƯỢT PHẢI - MOBILE OPTIMIZED)
+         ==================================================================== -->
+    <section class="hero" id="hero">
+        <div class="banner-carousel">
+            <div class="banner-slide active" style="background-image: url('images/banner1.jpg');"></div>
+            <div class="banner-slide" style="background-image: url('images/banner2.jpg');"></div>
+            <div class="banner-slide" style="background-image: url('images/banner3.jpg');"></div>
+            <div class="banner-slide" style="background-image: url('images/banner4.jpg');"></div>
+            <div class="banner-slide" style="background-image: url('images/banner5.jpg');"></div>
+            <div class="banner-slide" style="background-image: url('images/banner6.jpg');"></div>
+            <div class="banner-slide" style="background-image: url('images/banner7.jpg');"></div>
+            <div class="banner-slide" style="background-image: url('images/banner8.jpg');"></div>
+            <div class="banner-slide" style="background-image: url('images/banner9.jpg');"></div>
+        </div>
+
+        <div class="container hero-content">
+            <h1 class="hero-title" id="heroTitleDisplay">
+                CLB TÌNH NGUYỆN HOA SEN – <span>Mọi thứ sẽ qua đi, chỉ còn tình người ở lại</span>
+            </h1>
+            
+            <p class="hero-desc" id="heroSubtitleDisplay">
+                Kết nối những trái tim nhiệt huyết, cùng mang nụ cười và hy vọng đến khắp mọi miền Tổ quốc.
+            </p>
+
+            <div class="hero-actions">
+                <button class="btn btn-primary js-open-register">
+                    <span>🌸</span> Tham Gia Ngay
+                </button>
+                <a href="#activities" class="btn btn-secondary">
+                    <span>🌱</span> Khám phá hoạt động
+                </a>
+            </div>
+
+            <!-- Thống kê chính xác - Fits nicely on Mobile & Desktop -->
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number" id="statMembersDisplay">50+</div>
+                    <div class="stat-label">Tình nguyện viên</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="statCampaignsDisplay">20+</div>
+                    <div class="stat-label">Chiến dịch hoàn thành</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="statGiftsDisplay">100+</div>
+                    <div class="stat-label">Suất quà đã trao tặng</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================================================================
+         GIỚI THIỆU CLB
+         ==================================================================== -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <div class="section-tag">🌿 Về Chúng Tôi</div>
+                    <h2 id="aboutTitleDisplay">Hành trình nhiệt huyết của tuổi trẻ</h2>
+                    <p class="about-lead" id="aboutLeadDisplay">
+                        CLB TÌNH NGUYỆN HOA SEN - TDU quy tụ lực lượng thanh niên năng động, lấy tinh thần cống hiến vì cộng đồng làm kim chỉ nam.
+                    </p>
+                    <p class="about-text" id="aboutTextDisplay">
+                        Chúng tôi liên tục tổ chức các chiến dịch hiến máu nhân đạo, chương trình ấm áp cho thiếu nhi và hỗ trợ người lao động nghèo trên địa bàn TP. Hải Phòng.
+                    </p>
+
+                    <div class="values-list" id="aboutValuesList">
+                        <div class="value-card">
+                            <div class="value-icon">❤️</div>
+                            <div>
+                                <div class="value-title">Sứ Mệnh (Tâm)</div>
+                                <div class="value-desc">Lan tỏa yêu thương, chia sẻ niềm vui và hỗ trợ kịp thời các hoàn cảnh khó khăn.</div>
+                            </div>
+                        </div>
+
+                        <div class="value-card">
+                            <div class="value-icon">🎯</div>
+                            <div>
+                                <div class="value-title">Tầm Nhìn (Trí)</div>
+                                <div class="value-desc">Xây dựng tổ chức tình nguyện gắn kết, vững mạnh và mang giá trị xã hội sâu sắc.</div>
+                            </div>
+                        </div>
+
+                        <div class="value-card">
+                            <div class="value-icon">🤝</div>
+                            <div>
+                                <div class="value-title">Giá Trị Cốt Lõi (Tín)</div>
+                                <div class="value-desc">Tự nguyện - Trách nhiệm - Đoàn kết - Sáng tạo.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-media">
+                    <div class="media-wrapper">
+                        <div class="about-media-slide active" style="background-image: url('images/banner1.jpg');"></div>
+                        <div class="about-media-slide" style="background-image: url('images/banner2.jpg');"></div>
+                        <div class="about-media-slide" style="background-image: url('images/banner3.jpg');"></div>
+                        <div class="about-media-slide" style="background-image: url('images/banner4.jpg');"></div>
+                        <div class="about-media-slide" style="background-image: url('images/banner5.jpg');"></div>
+                        <div class="about-media-slide" style="background-image: url('images/banner6.jpg');"></div>
+                        <div class="about-media-slide" style="background-image: url('images/banner7.jpg');"></div>
+                        <div class="about-media-slide" style="background-image: url('images/banner8.jpg');"></div>
+                        <div class="about-media-slide" style="background-image: url('images/banner9.jpg');"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================================================================
+         HOẠT ĐỘNG NỔI BẬT (TOUCH SWIPE MOBILE OPTIMIZED)
+         ==================================================================== -->
+    <section class="activities" id="activities">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">🌼 Chương Trình Tiêu Biểu</div>
+                <h2 class="section-title">Hoạt động nổi bật</h2>
+                <p class="section-subtitle">Những chiến dịch ghi dấu ấn đậm nét của CLB TÌNH NGUYỆN HOA SEN - TDU.</p>
+            </div>
+
+            <div class="activities-slider-outer">
+                <div class="activities-grid-slider" id="activitiesGrid">
+                    <div class="activity-card">
+                        <div class="card-img-holder">
+                            <img src="images/carrots_support.jpg" alt="Chung tay hỗ trợ tiêu thụ cà rốt Hải Phòng">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">🥕 Hỗ trợ tiêu thụ cà rốt Hải Phòng</h3>
+                            <p class="card-text">"Chung tay cùng bà con nông dân". CLB Tình Nguyện Hoa Sen chung tay kết nối, thu mua và hỗ trợ tiêu thụ nông sản cà rốt tại TP. Hải Phòng.</p>
+                            <a href="javascript:void(0)" class="card-link js-open-register">Đồng hành ngay ➔</a>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="card-img-holder">
+                            <img src="images/banner1.jpg" alt="Dòng chảy bếp hồng">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Dòng chảy bếp hồng</h3>
+                            <p class="card-text">"Nồi cháo tình thương - Ấm áp lòng người". Nấu và phân phát hàng trăm suất cháo dinh dưỡng nóng hổi.</p>
+                            <a href="javascript:void(0)" class="card-link js-open-register">Đồng hành ngay ➔</a>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="card-img-holder">
+                            <img src="images/banner2.jpg" alt="Hiến máu tình nguyện">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Hiến máu tình nguyện</h3>
+                            <p class="card-text">"Giọt máu cho đi - Một đời ở lại". Ngày hội hiến máu trao niềm hy vọng cho các bệnh nhân cần máu điều trị.</p>
+                            <a href="javascript:void(0)" class="card-link js-open-register">Đăng ký tham gia ➔</a>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="card-img-holder">
+                            <img src="images/banner3.jpg" alt="Trung thu cho em">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Trung thu cho em</h3>
+                            <p class="card-text">Mang đến không khí Tết Trung thu rộn ràng, lồng đèn lung linh và những phần quà ý nghĩa cho các em nhỏ.</p>
+                            <a href="javascript:void(0)" class="card-link js-open-register">Tham gia cùng chúng tôi ➔</a>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="card-img-holder">
+                            <img src="images/banner4.jpg" alt="Kỷ niệm 5 năm">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Kỷ niệm 5 năm thành lập</h3>
+                            <p class="card-text">Lễ kỷ niệm chặng đường 5 năm cống hiến vì cộng đồng của CLB Tình Nguyện Hoa Sen - Cơm An.</p>
+                            <a href="javascript:void(0)" class="card-link js-open-register">Tìm hiểu thêm ➔</a>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="card-img-holder">
+                            <img src="images/xuanam.jpg" alt="Xuân ấm tình thương">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Xuân ấm tình thương</h3>
+                            <p class="card-text">Trao tặng những phần quà Tết ý nghĩa, áo ấm và nhu yếu phẩm đến các hộ gia đình và trẻ em có hoàn cảnh khó khăn.</p>
+                            <a href="javascript:void(0)" class="card-link js-open-register">Đồng hành ngay ➔</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================================================================
+         SƠ ĐỒ TỔ CHỨC PHÂN CẤP CLB (HIERARCHICAL ORG CHART)
+         ==================================================================== -->
+    <section class="members" id="members">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">🌺 Bộ Máy Tổ Chức & Nòng Cốt</div>
+                <h2 class="section-title">Sơ đồ phân cấp CLB</h2>
+                <p class="section-subtitle">Cơ cấu tổ chức điều hành minh bạch, chuyên nghiệp của CLB TÌNH NGUYỆN HOA SEN - TDU.</p>
+            </div>
+
+            <!-- ORG CHART TREE WRAPPER -->
+            <div class="org-tree-container">
+                <!-- TẦNG 1: CHỦ NHIỆM CLB (LEVEL 1) -->
+                <div class="org-level level-1">
+                    <div class="org-card card-president">
+                        <div class="org-badge">👑 CHỦ NHIỆM CLB</div>
+                        <div class="org-avatar">
+                            <img src="images/pres.jpg" alt="Đ/c Bùi Cẩm Trang">
+                        </div>
+                        <h3 class="org-name">Đ/c Bùi Cẩm Trang</h3>
+                        <div class="org-role">Phó Bí thư Đoàn trường, Chủ nhiệm CLB</div>
+                        <p class="org-quote">"Lãnh đạo bằng tình yêu thương và trách nhiệm vì cộng đồng."</p>
+                    </div>
+                </div>
+
+                <!-- ĐƯỜNG NỐI DỌC CÂN ĐỐI -->
+                <div class="org-connector-vertical"></div>
+
+                <!-- TẦNG 2: PHÓ CHỦ NHIỆM CLB (LEVEL 2) -->
+                <div class="org-level level-2">
+                    <div class="org-row">
+                        <div class="org-card card-vpres">
+                            <div class="org-badge">⭐ PHÓ CHỦ NHIỆM CLB</div>
+                            <div class="org-avatar">
+                                <img src="images/vpres.jpg" alt="Đ/c Mạc Thị Cẩm Ly">
+                            </div>
+                            <h3 class="org-name">Đ/c Mạc Thị Cẩm Ly</h3>
+                            <div class="org-role">Phó Chủ nhiệm CLB<span class="org-sub-role">Trưởng Ban Tổ Chức - Kế Hoạch</span></div>
+                            <p class="org-quote">"Kế hoạch chu đáo là nền tảng cho mọi hành trình tình nguyện."</p>
+                        </div>
+
+                        <div class="org-card card-vpres">
+                            <div class="org-badge">⭐ PHÓ CHỦ NHIỆM CLB</div>
+                            <div class="org-avatar">
+                                <img src="images/pres.jpg" alt="Đ/c Nguyễn Văn Thuận">
+                            </div>
+                            <h3 class="org-name">Đ/c Nguyễn Văn Thuận</h3>
+                            <div class="org-role">Phó Chủ nhiệm CLB<span class="org-sub-role">Phụ trách Ban Thủ Quỹ - Bán Hàng</span></div>
+                            <p class="org-quote">"Đồng lòng cống hiến, lan tỏa sức trẻ tình nguyện."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ĐƯỜNG NỐI DỌC CÂN ĐỐI -->
+                <div class="org-connector-vertical"></div>
+
+                <!-- TẦNG 3: CÁC BAN NGÀNH & TRƯỞNG BAN (LEVEL 3 - ĐỒNG BỘ ĐẸP NHƯ TẦNG 1 & 2) -->
+                <div class="org-level level-3">
+                    <div class="org-row">
+                        <!-- BAN NHIỆM VỤ -->
+                        <div class="org-card card-dept">
+                            <div class="org-badge">📋 BAN NHIỆM VỤ</div>
+                            <div class="org-avatar">
+                                <img src="images/charity.jpg" alt="Đ/c Trần Kim Khánh">
+                            </div>
+                            <h3 class="org-name">Đ/c Trần Kim Khánh</h3>
+                            <div class="org-role">Trưởng Ban Nhiệm Vụ</div>
+                        </div>
+
+                        <!-- BAN PHONG TRÀO - TRUYỀN THÔNG -->
+                        <div class="org-card card-dept">
+                            <div class="org-badge">📢 TRUYỀN THÔNG</div>
+                            <div class="org-avatar">
+                                <img src="images/workshop.jpg" alt="Đ/c Lê Thanh Minh">
+                            </div>
+                            <h3 class="org-name">Đ/c Lê Thanh Minh</h3>
+                            <div class="org-role">Trưởng Ban Truyền Thông</div>
+                        </div>
+
+                        <!-- BAN THỂ THAO -->
+                        <div class="org-card card-dept">
+                            <div class="org-badge">⚽ BAN THỂ THAO</div>
+                            <div class="org-avatar">
+                                <img src="images/student.jpg" alt="Đ/c Nguyễn Đức Anh">
+                            </div>
+                            <h3 class="org-name">Đ/c Nguyễn Đức Anh</h3>
+                            <div class="org-role">Trưởng Ban Thể Thao</div>
+                        </div>
+
+                        <!-- THỦ QUỸ CLB -->
+                        <div class="org-card card-dept">
+                            <div class="org-badge">💎 THỦ QUỸ CLB</div>
+                            <div class="org-avatar">
+                                <img src="images/vpres.jpg" alt="Đ/c Chu Thị Phúc">
+                            </div>
+                            <h3 class="org-name">Đ/c Chu Thị Phúc</h3>
+                            <div class="org-role">Thủ Quỹ CLB</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================================================================
+         KÊU GỌI THAM GIA
+         ==================================================================== -->
+    <section class="cta-banner">
+        <div class="container cta-box">
+            <h2 class="cta-title">💖 Cùng Hoa Sen lan tỏa yêu thương đến mọi miền đất nước</h2>
+            <p class="cta-desc">Trở thành một phần trong đội ngũ 50+ tình nguyện viên nhiệt huyết của chúng tôi!</p>
+            <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+                <button class="btn btn-primary btn-cta-lg js-open-register">
+                    <span>🌸</span> Tham Gia Ngay
+                </button>
+                <a href="https://zalo.me/g/jnkxkg639" target="_blank" class="btn btn-secondary btn-cta-lg js-protected-zalo" style="background: #ffffff; color: var(--primary-dark);">
+                    💬 Nhóm Zalo Ứng Tuyển
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================================================================
+         LIÊN HỆ
+         ==================================================================== -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">📞 Kết Nối Với Chúng Tôi</div>
+                <h2 class="section-title">Gửi tin nhắn liên hệ</h2>
+                <p class="section-subtitle">Gửi đề xuất hợp tác hoặc đăng ký tham gia trực tiếp với CLB TÌNH NGUYỆN HOA SEN - TDU.</p>
+            </div>
+
+            <div class="contact-grid-single">
+                <div class="contact-form-card">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label class="form-label" for="contactName">Họ và tên *</label>
+                            <input type="text" id="contactName" class="form-input" placeholder="Ví dụ: Nguyễn Văn An" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="contactEmail">Email liên hệ *</label>
+                            <input type="email" id="contactEmail" class="form-input" placeholder="name@example.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="contactPhone">Số điện thoại *</label>
+                            <input type="tel" id="contactPhone" class="form-input" placeholder="0912 345 678" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="contactMessage">Nội dung tin nhắn *</label>
+                            <textarea id="contactMessage" name="contactMessage" class="form-textarea" rows="4" placeholder="Nhập lời nhắn hoặc đề xuất của bạn gửi đến Ban Chủ Nhiệm CLB..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            ✉️ Gửi Tin Nhắn
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================================================================
+         FOOTER
+         ==================================================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">
+                        <div class="logo-wrapper">
+                            <img src="images/logo.png" alt="Logo CLB Tình Nguyện Hoa Sen" class="footer-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                            <span class="logo-fallback-svg" style="display: none;">
+                                <svg viewBox="0 0 100 100" width="36" height="36" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="50" cy="50" r="48" fill="#075936" stroke="#f59e0b" stroke-width="3"/>
+                                    <path d="M50 20 C60 38, 75 45, 80 60 C75 75, 60 80, 50 82 C40 80, 25 75, 20 60 C25 45, 40 38, 50 20 Z" fill="#e05297"/>
+                                    <path d="M50 28 C57 42, 68 48, 72 60 C68 70, 57 74, 50 76 C43 74, 32 70, 28 60 C32 48, 43 42, 50 28 Z" fill="#ffffff"/>
+                                    <circle cx="50" cy="62" r="6" fill="#f59e0b"/>
+                                </svg>
+                            </span>
+                        </div>
+                        <span class="js-clb-name">CLB TÌNH NGUYỆN HOA SEN - TDU</span>
+                    </div>
+                    <p style="font-size: 0.88rem; line-height: 1.5;">
+                        "Lan tỏa yêu thương, chung tay cộng đồng" – Tổ chức tình nguyện thanh niên nhiệt huyết tại TP. Hải Phòng.
+                    </p>
+                    <div class="footer-address-box">
+                        <span>📍</span>
+                        <span class="js-contact-address">Số 3 Vũ Công Đán, phường Tứ Minh, TP. Hải Phòng</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading" style="color: #f78bb0; margin-bottom: 10px; font-size: 0.88rem;">🌸 Mọi thắc mắc vui lòng liên hệ qua</h4>
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <div style="background: rgba(224, 82, 151, 0.08); border-left: 2.5px solid #e05297; padding: 6px 10px; border-radius: 6px;">
+                            <a href="tel:0364282000" style="color: #fce7f1; font-weight: 700; font-size: 0.84rem; text-decoration: none; display: inline-block;">☎ Hotline: 0364282000</a>
+                            <div style="color: rgba(255,255,255,0.88); font-size: 0.76rem; margin-top: 2px; line-height: 1.3;">Đ/c Bùi Cẩm Trang - Phó Bí Thư Đoàn Trường, Chủ Nhiệm CLB.</div>
+                        </div>
+                        <div style="background: rgba(224, 82, 151, 0.08); border-left: 2.5px solid #e05297; padding: 6px 10px; border-radius: 6px;">
+                            <a href="tel:0396691838" style="color: #fce7f1; font-weight: 700; font-size: 0.84rem; text-decoration: none; display: inline-block;">☎ Hotline: 0396691838</a>
+                            <div style="color: rgba(255,255,255,0.88); font-size: 0.76rem; margin-top: 2px; line-height: 1.3;">Đ/c Mạc Thị Cẩm Ly - Phó CN CLB.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Liên Kết Nhanh</h4>
+                    <ul class="footer-links">
+                        <li><a href="#hero">Trang chủ</a></li>
+                        <li><a href="#about">Giới thiệu</a></li>
+                        <li><a href="#activities">Hoạt động</a></li>
+                        <li><a href="#members">Thành viên</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 CLB TÌNH NGUYỆN HOA SEN - TDU. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- NÚT MẠNG XÃ HỘI TRÒN ĐỘNG CHỨA LOGO FACEBOOK VÀ ZALO INLINE HD SVG -->
+    <div class="floating-social-box">
+        <!-- LOGO FACEBOOK CHUẨN (INLINE HD VECTOR SVG) -->
+        <a href="https://www.facebook.com/share/1JYARBM1M1/?mibextid=wwXIfr" target="_blank" class="floating-btn fb js-social-fb" title="Facebook CLB Hoa Sen">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="#ffffff"/>
+            </svg>
+            <span class="btn-tooltip">Facebook CLB Hoa Sen</span>
+        </a>
+
+        <!-- LOGO ZALO CHUẨN XÁC (INLINE HD VECTOR SVG) -->
+        <a href="https://zalo.me/g/jnkxkg639" target="_blank" class="floating-btn zalo js-protected-zalo" title="Nhóm Zalo Ứng Tuyển">
+            <svg width="34" height="34" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M438.5 168.6C423.7 72.8 335.7 0 230 0 103 0 0 103 0 230c0 46.9 14.1 90.6 38.3 127L7 483l131-34.3c35.4 20.3 76.4 31.8 120.1 31.8 127 0 230-103 230-230 0-28.7-5.3-56.2-19.6-81.9z" fill="#0068FF"/>
+                <text x="250" y="275" font-size="160" font-weight="900" text-anchor="middle" fill="#ffffff" font-family="Arial, Helvetica, sans-serif">Zalo</text>
+            </svg>
+            <span class="btn-tooltip">Nhóm Zalo Ứng Tuyển CLB</span>
+        </a>
+    </div>
+
+    <!-- MODAL ĐĂNG NHẬP & ĐĂNG KÝ TÀI KHOẢN -->
+    <div class="modal-overlay" id="unifiedLoginModal">
+        <div class="modal-box" style="max-width: 440px;">
+            <button class="modal-close">&times;</button>
+            
+            <!-- Tab Switcher -->
+            <div style="display: flex; background: #f1f5f9; border-radius: 12px; padding: 4px; margin-bottom: 20px;">
+                <button type="button" id="tabLoginBtn" class="account-tab-btn active" style="flex: 1; padding: 8px; font-weight: 700; border: none; border-radius: 8px; cursor: pointer; background: #ffffff; color: var(--primary-dark); box-shadow: 0 2px 6px rgba(0,0,0,0.06);">🔑 Đăng Nhập</button>
+                <button type="button" id="tabRegisterAccountBtn" class="account-tab-btn" style="flex: 1; padding: 8px; font-weight: 700; border: none; border-radius: 8px; cursor: pointer; background: transparent; color: var(--text-muted);">📝 Đăng Ký Tài Khoản</button>
+            </div>
+
+            <!-- FORM 1: ĐĂNG NHẬP -->
+            <form id="unifiedLoginForm">
+                <h3 style="font-size: 1.5rem; text-align: center; margin-bottom: 6px;">🔑 Đăng Nhập Hệ Thống</h3>
+                <p style="color: var(--text-muted); font-size: 0.85rem; text-align: center; margin-bottom: 20px;">Nhập tài khoản để gửi đơn đăng ký hoặc truy cập Zalo</p>
+
+                <div class="form-group">
+                    <label class="form-label">Tên đăng nhập hoặc Email / SĐT *</label>
+                    <input type="text" id="accountUser" class="form-input" placeholder="Tên đăng nhập / SĐT..." required>
+                </div>
+                <div class="form-group" style="margin-bottom: 24px;">
+                    <label class="form-label">Mật khẩu *</label>
+                    <input type="password" id="accountPass" class="form-input" placeholder="Mật khẩu..." required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">🔑 Đăng Nhập Ngay</button>
+            </form>
+
+            <!-- FORM 2: ĐĂNG KÝ TÀI KHOẢN MỚI -->
+            <form id="unifiedCreateAccountForm" style="display: none;">
+                <h3 style="font-size: 1.5rem; text-align: center; margin-bottom: 6px;">📝 Đăng Ký Tài Khoản Mới</h3>
+                <p style="color: var(--text-muted); font-size: 0.85rem; text-align: center; margin-bottom: 20px;">Tạo tài khoản cá nhân với Họ tên và Mật khẩu</p>
+
+                <div class="form-group">
+                    <label class="form-label">Họ và tên người dùng *</label>
+                    <input type="text" id="newAccFullName" class="form-input" placeholder="Ví dụ: Nguyễn Văn An" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Tên đăng nhập / Số điện thoại *</label>
+                    <input type="text" id="newAccUser" class="form-input" placeholder="Tên đăng nhập hoặc 0912..." required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Mật khẩu *</label>
+                    <input type="password" id="newAccPass" class="form-input" placeholder="Nhập mật khẩu tự chọn..." required>
+                </div>
+                <div class="form-group" style="margin-bottom: 24px;">
+                    <label class="form-label">Xác nhận mật khẩu *</label>
+                    <input type="password" id="newAccPassConfirm" class="form-input" placeholder="Nhập lại mật khẩu..." required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">✨ Đăng Ký Tài Khoản</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL REGISTRATION -->
+    <div class="modal-overlay" id="registerModal">
+        <div class="modal-box">
+            <button class="modal-close">&times;</button>
+            <h3 style="font-size: 1.8rem; margin-bottom: 4px;">🌸 Đơn Đăng Ký Tình Nguyện Viên</h3>
+            <p style="color: var(--text-muted); margin-bottom: 16px;">Gia nhập gia đình CLB TÌNH NGUYỆN HOA SEN - TDU!</p>
+
+            <!-- Banner Zalo Link Nổi Bật -->
+            <div style="background: #eff6ff; border: 1.5px solid #93c5fd; border-radius: 12px; padding: 12px 16px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
+                <div style="font-size: 0.88rem; color: #1e3a8a; font-weight: 700;">
+                    💬 Hoặc tham gia trao đổi trực tiếp:
+                </div>
+                <a href="https://zalo.me/g/jnkxkg639" target="_blank" class="btn btn-primary js-protected-zalo" style="padding: 6px 14px; font-size: 0.85rem; background: #0068ff; box-shadow: 0 4px 12px rgba(0,104,255,0.3);">
+                    👉 Nhóm Zalo Ứng Tuyển
+                </a>
+            </div>
+
+            <form id="registerForm">
+                <div class="form-group">
+                    <label class="form-label">Họ và tên *</label>
+                    <input type="text" id="regName" class="form-input" placeholder="Ví dụ: Nguyễn Văn An" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Số điện thoại *</label>
+                    <input type="tel" id="regPhone" class="form-input" placeholder="0912 345 678" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Email *</label>
+                    <input type="email" id="regEmail" class="form-input" placeholder="an@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Trường / Chuyên ngành</label>
+                    <input type="text" id="regUniversity" class="form-input" placeholder="Trường ĐH Hải Phòng...">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Ghi chú / Đề xuất</label>
+                    <textarea id="regMotivation" class="form-textarea" style="min-height: 90px;" placeholder="Ghi chú thêm về bản thân hoặc nguyện vọng..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">🌸 Gửi Đăng Ký (Gửi Ban Chủ Nhiệm)</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

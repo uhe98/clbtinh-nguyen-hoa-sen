@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <!-- Circular White Background with Soft Shadow -->
+  <circle cx="250" cy="250" r="240" fill="#FFFFFF"/>
+  <circle cx="250" cy="250" r="236" fill="none" stroke="#0068FF" stroke-width="6" opacity="0.15"/>
+  
+  <!-- Outer Zalo Blue Crescent Speech Bubble -->
+  <path d="M 330 90 
+           C 180 50 65 160 65 260 
+           C 65 330 110 385 170 415 
+           C 140 445 95 460 95 460 
+           C 95 460 175 450 225 412 
+           C 246 417 268 420 290 420 
+           C 365 420 425 375 435 345" 
+        fill="none" 
+        stroke="#0068FF" 
+        stroke-width="32" 
+        stroke-linecap="round"/>
+        
+  <!-- Zalo Brand Typography -->
+  <text x="260" y="255" font-family="'Outfit', 'Inter', Arial, sans-serif" font-weight="900" font-size="118" fill="#0068FF" text-anchor="middle" dominant-baseline="central" letter-spacing="-3">Zalo</text>
+</svg>
