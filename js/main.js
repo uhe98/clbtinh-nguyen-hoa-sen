@@ -661,8 +661,8 @@ async function loadMembers() {
                 }
             }
             if (m.id === 8 || (m.hoTen && m.hoTen.includes('Chu Thị Phúc'))) {
-                if (m.chucVu !== 'Thủ Quỹ - Ban Thủ Quỹ - Bán Hàng') {
-                    m.chucVu = 'Thủ Quỹ - Ban Thủ Quỹ - Bán Hàng';
+                if (m.chucVu !== 'Thủ Quỹ CLB') {
+                    m.chucVu = 'Thủ Quỹ CLB';
                     needsSave = true;
                 }
             }
