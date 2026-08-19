@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Trị Hệ Thống - CLB TÌNH NGUYỆN HOA SEN</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="admin-body">
+
+    <!-- LOCK SCREEN FOR UNAUTHENTICATED ADMIN ACCESS -->
+    <div id="adminAuthLock" class="modal-overlay active" style="z-index: 9999; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(12px);">
+        <div class="modal-box" style="max-width: 400px; text-align: center; border-top: 4px solid var(--accent-pink);">
+            <div style="font-size: 3rem; margin-bottom: 10px;">🔐</div>
+            <h2 style="font-size: 1.5rem; margin-bottom: 8px;">Đăng Nhập Quản Trị Viên</h2>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 24px;">Hệ thống bảo mật dành riêng cho Ban Chủ Nhiệm CLB Hoa Sen</p>
+
+            <form onsubmit="handleAdminLogin(event)">
+                <div class="form-group" style="text-align: left;">
+                    <label class="form-label">Tên đăng nhập Admin</label>
+                    <input type="text" id="loginUser" class="form-input" placeholder="Tài khoản Admin..." value="admin" required>
+                </div>
+                <div class="form-group" style="text-align: left; margin-bottom: 24px;">
+                    <label class="form-label">Mật khẩu Quản trị</label>
+                    <input type="password" id="loginPass" class="form-input" placeholder="Mật khẩu..." value="admin123" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">🔓 Đăng Nhập Quản Trị</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- SIDEBAR NAVIGATION -->
+    <aside class="admin-sidebar">
+        <div class="admin-brand">
+            <div class="admin-brand-title">🌸 ADMIN HOA SEN</div>
+            <div style="font-size: 0.78rem; color: rgba(255,255,255,0.6); margin-top: 4px;">Hệ thống Quản trị CLB TDU</div>
+        </div>
+
+        <ul class="admin-nav">
+            <li class="admin-nav-item active" data-view="viewRegistrations">
+                <span>📋</span> Đơn đăng ký thành viên
+            </li>
+            <li class="admin-nav-item" data-view="viewAccounts">
+                <span>👥</span> Tài khoản Đã Đăng ký
+            </li>
+            <li class="admin-nav-item" data-view="viewMessages">
+                <span>💬</span> Tin nhắn liên hệ
+            </li>
+            <li class="admin-nav-item" data-view="viewActivities">
+                <span>🌱</span> Quản lý Hoạt động
+            </li>
+            <li class="admin-nav-item" data-view="viewAboutUs">
+                <span>🌿</span> Quản lý Về Chúng Tôi
+            </li>
+            <li class="admin-nav-item" data-view="viewMembers">
+                <span>🌺</span> Quản lý Ban Chủ Nhiệm
+            </li>
+            <li class="admin-nav-item" data-view="viewImages">
+                <span>🖼️</span> Quản lý Hero Banner & Ảnh
+            </li>
+        </ul>
+
+        <div style="margin-top: auto; padding: 24px;">
+            <a href="index.html" class="btn btn-secondary" style="width: 100%; justify-content: center; font-size: 0.85rem; margin-bottom: 10px;">
+                🌐 Xem Trang Chủ
+            </a>
+            <button onclick="handleAdminLogout()" class="btn btn-primary" style="width: 100%; justify-content: center; font-size: 0.85rem; background: #991b1b;">
+                🔒 Đăng Xuất
+            </button>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="admin-main">
+        <div class="admin-topbar">
+            <h1 class="admin-page-title" id="pageTitleHeading">Đơn đăng ký thành viên</h1>
+            <div class="server-status">
+                <span style="width: 8px; height: 8px; border-radius: 50%; background: #10b981; display: inline-block;"></span>
+                Hệ thống sẵn sàng
+            </div>
+        </div>
+
+        <!-- VIEW 1: ĐƠN ĐĂNG KÝ THÀNH VIÊN -->
+        <div id="viewRegistrations" class="admin-view-content">
+            <div class="admin-card">
+                <div class="admin-card-header">
+                    <h2 class="admin-card-title">Danh Sách Đơn Đăng Ký Tình Nguyện Viên</h2>
+                    <button class="btn-action-add" onclick="exportAdminRegistrationsToExcel()">📥 Xuất File Excel (.CSV)</button>
+                </div>
+                <div class="table-responsive" style="width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch;">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Họ và tên</th>
+                                <th>Mã SV</th>
+                                <th>Số điện thoại</th>
+                                <th>Email</th>
+                                <th>Ngày đăng ký</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminRegsList">
+                            <!-- Rendered by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- VIEW 2: QUẢN LÝ TÀI KHOẢN ĐÃ ĐĂNG KÝ -->
+        <div id="viewAccounts" class="admin-view-content" style="display: none;">
+            <div class="admin-card">
+                <div class="admin-card-header">
+                    <h2 class="admin-card-title">👥 Quản Lý Tài Khoản Người Dùng Đã Đăng Ký</h2>
+                    <div style="display: flex; gap: 10px;">
+                        <button class="btn-action-add" onclick="openAddUserAccountModal()">➕ Thêm Tài Khoản Mới</button>
+                        <button class="btn-action-add" style="background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%) !important;" onclick="exportUserAccountsToExcel()">📥 Xuất Excel (.CSV)</button>
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; gap: 16px; flex-wrap: wrap;">
+                    <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0;">
+                        Chỉ các tài khoản có trong danh sách này mới được phép Đăng nhập vào hệ thống.
+                    </p>
+                    <div style="position: relative; width: 280px;">
+                        <input type="text" id="searchAccountInput" class="form-input" placeholder="🔍 Tìm theo Họ tên hoặc SĐT..." onkeyup="filterUserAccountsTable()" style="padding-left: 14px; font-size: 0.86rem;">
+                    </div>
+                </div>
+                <div class="table-responsive" style="width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch;">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Họ và tên</th>
+                                <th>Tên đăng nhập / SĐT</th>
+                                <th>Mật khẩu</th>
+                                <th>Ngày tạo tài khoản</th>
+                                <th>Thao tác quản trị</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminUserAccountsList">
+                            <!-- Rendered by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- VIEW 3: TIN NHẮN LIÊN HỆ -->
+        <div id="viewMessages" class="admin-view-content" style="display: none;">
+            <div class="admin-card">
+                <div class="admin-card-header">
+                    <h2 class="admin-card-title">Tin Nhắn Từ Trang Liên Hệ</h2>
+                    <button class="btn-action-add" onclick="exportMessagesToExcel()">📥 Xuất Excel Tin Nhắn</button>
+                </div>
+                <div class="table-responsive" style="width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch;">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Họ và tên</th>
+                                <th>Số điện thoại</th>
+                                <th>Email</th>
+                                <th>Nội dung tin nhắn</th>
+                                <th>Ngày gửi</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminMessagesList">
+                            <!-- Rendered by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- VIEW 4: QUẢN LÝ HOẠT ĐỘNG -->
+        <div id="viewActivities" class="admin-view-content" style="display: none;">
+            <div class="admin-card">
+                <div class="admin-card-header">
+                    <h2 class="admin-card-title">Danh Sách Hoạt Động Tiêu Biểu</h2>
+                    <button class="btn-action-add" onclick="openAddActivityModal()">➕ Thêm Hoạt Động Mới</button>
+                </div>
+                <div class="table-responsive" style="width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch;">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Hình ảnh</th>
+                                <th>STT</th>
+                                <th>Tên hoạt động</th>
+                                <th>Mô tả ngắn</th>
+                                <th>Trạng thái</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminActivitiesList">
+                            <!-- Rendered by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- VIEW 5: QUẢN LÝ VỀ CHÚNG TÔI -->
+        <div id="viewAboutUs" class="admin-view-content" style="display: none;">
+            <div class="admin-card">
+                <div class="admin-card-header">
+                    <h2 class="admin-card-title">Chỉnh Sửa Nội Dung & Album Về Chúng Tôi</h2>
+                    <button type="button" class="btn-action-add" onclick="saveAboutUsSettings(event)">💾 Lưu Thay Đổi</button>
+                </div>
+                <form id="adminAboutForm">
+                    <div class="form-group">
+                        <label class="form-label">Tiêu đề chính Về Chúng Tôi</label>
+                        <input type="text" id="aboutTitleInput" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Đoạn dẫn dắt (Lead text)</label>
+                        <textarea id="aboutLeadInput" class="form-textarea" style="min-height: 80px;"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Nội dung chi tiết</label>
+                        <textarea id="aboutTextInput" class="form-textarea" style="min-height: 100px;"></textarea>
+                    </div>
+
+                    <div style="margin-top: 24px; border-top: 1px solid #e2e8f0; padding-top: 20px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                            <h3 style="font-size: 1.1rem; font-weight: 700; color: #075936;">📸 Bộ Album 10 Ảnh Trượt Về Chúng Tôi</h3>
+                            <div style="display: flex; gap: 10px;">
+                                <label class="btn-action-edit" style="cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
+                                    📁 Upload Nhiều Ảnh Từ Máy Tính
+                                    <input type="file" id="uploadAboutAlbumFileInput" accept="image/*" multiple style="display: none;" onchange="handleAboutAlbumFileUpload(event)">
+                                </label>
+                                <button type="button" class="btn-action-edit" onclick="addAboutImage()">➕ Thêm Ảnh Đường Dẫn</button>
+                            </div>
+                        </div>
+                        <div id="aboutImagesContainer">
+                            <!-- Rendered by JS -->
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- VIEW 6: QUẢN LÝ BAN CHỦ NHIỆM -->
+        <div id="viewMembers" class="admin-view-content" style="display: none;">
+            <div class="admin-card">
+                <div class="admin-card-header">
+                    <h2 class="admin-card-title">Danh Sách Ban Chủ Nhiệm & Nòng Cốt</h2>
+                    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                        <button type="button" class="btn-action-add" onclick="openAddMemberModal()">➕ Thêm Thành Viên</button>
+                        <button type="button" class="btn-action-add" style="background: linear-gradient(135deg, #059669 0%, #047857 100%) !important;" onclick="exportMembersJsonConfig()">📤 Xuất File Cấu Hình (.JSON)</button>
+                        <label class="btn-action-add" style="background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%) !important; cursor: pointer; display: inline-flex; align-items: center; margin: 0;">
+                            📥 Nhập File Cấu Hình (.JSON)
+                            <input type="file" accept=".json" style="display: none;" onchange="importMembersJsonConfig(event)">
+                        </label>
+                    </div>
+                </div>
+                <div class="table-responsive" style="width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch;">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Ảnh</th>
+                                <th>Họ và tên</th>
+                                <th>Chức vụ</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminMembersList">
+                            <!-- Rendered by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- VIEW 7: QUẢN LÝ HERO BANNER & HÌNH ẢNH (TẢI ẢNH TỪ MÁY TÍNH VÀ ĐỒNG BỘ ĐÁM MÂY) -->
+        <div id="viewImages" class="admin-view-content" style="display: none;">
+            <div class="admin-card">
+                <div class="admin-card-header">
+                    <h2 class="admin-card-title">Quản Lý Hero Banner Slideshow (Tối đa 10 Slide)</h2>
+                    <button type="button" class="btn-action-add" onclick="saveCategoryImages(event)">💾 Lưu Banner & Tiêu Đề</button>
+                </div>
+
+                <form id="adminImagesForm">
+                    <div class="form-group">
+                        <label class="form-label">Tiêu đề lớn trên Banner (Hero Title)</label>
+                        <input type="text" id="heroTitleInput" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Mô tả phụ trên Banner (Hero Subtitle)</label>
+                        <textarea id="heroSubtitleInput" class="form-textarea" style="min-height: 70px;"></textarea>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;">
+                        <div class="form-group">
+                            <label class="form-label">Số TV (Ví dụ: 50+)</label>
+                            <input type="text" id="statMembersInput" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Số Chiến dịch (20+)</label>
+                            <input type="text" id="statCampaignsInput" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Số Suất quà (100+)</label>
+                            <input type="text" id="statGiftsInput" class="form-input">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Logo CLB (Đường dẫn hình ảnh)</label>
+                        <input type="text" id="imgCategoryLogo" class="form-input">
+                    </div>
+
+                    <div style="margin-top: 24px; border-top: 1px solid #e2e8f0; padding-top: 20px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                            <h3 style="font-size: 1.1rem; font-weight: 700; color: #075936;">🖼️ Danh Sách Slide Ảnh Banner Trượt</h3>
+                            <div style="display: flex; gap: 10px;">
+                                <label class="btn-action-edit" style="cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
+                                    📁 Upload Nhiều Ảnh Từ Máy Tính
+                                    <input type="file" id="uploadBannerFileInput" accept="image/*" multiple style="display: none;" onchange="handleBannerFileUpload(event)">
+                                </label>
+                                <button type="button" class="btn-action-edit" onclick="addBannerSlide()">➕ Thêm Slide Đường Dẫn</button>
+                            </div>
+                        </div>
+                        <div id="bannerSlidesContainer">
+                            <!-- Rendered by JS -->
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- MODAL EDIT ACTIVITY -->
+    <div class="modal-overlay" id="activityFormModal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeModal('activityFormModal')">&times;</button>
+            <h3 style="font-size: 1.5rem; margin-bottom: 16px;" id="activityModalTitle">Chỉnh Sửa Hoạt Động</h3>
+            <form onsubmit="saveActivityForm(event)">
+                <input type="hidden" id="actId">
+                <div class="form-group">
+                    <label class="form-label">Tên hoạt động *</label>
+                    <input type="text" id="actName" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Mô tả ngắn *</label>
+                    <textarea id="actDesc" class="form-textarea" required></textarea>
+                </div>
+                <div class="form-group" style="margin-bottom: 14px;">
+                    <label class="form-label">Đường dẫn hình ảnh (images/...)</label>
+                    <div style="display: flex; gap: 8px;">
+                        <input type="text" id="actImgUrl" class="form-input" required style="flex-grow: 1;">
+                        <label class="btn-action-edit" style="cursor: pointer; display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0;">
+                            📁 Chọn từ máy
+                            <input type="file" accept="image/*" style="display: none;" onchange="handleSingleFileUpload(event, 'actImgUrl')">
+                        </label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">💾 Lưu Thay Đổi</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL EDIT MEMBER -->
+    <div class="modal-overlay" id="memberFormModal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeModal('memberFormModal')">&times;</button>
+            <h3 style="font-size: 1.5rem; margin-bottom: 16px;" id="memberModalTitle">Chỉnh Sửa Thành Viên</h3>
+            <form onsubmit="saveMemberForm(event)">
+                <input type="hidden" id="memId">
+                <div class="form-group">
+                    <label class="form-label">Họ và tên *</label>
+                    <input type="text" id="memName" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Chức vụ *</label>
+                    <input type="text" id="memRole" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Câu nói truyền cảm hứng</label>
+                    <input type="text" id="memQuote" class="form-input">
+                </div>
+                <div class="form-group" style="margin-bottom: 24px;">
+                    <label class="form-label">Đường dẫn ảnh đại diện (images/...)</label>
+                    <div style="display: flex; gap: 8px;">
+                        <input type="text" id="memImgUrl" class="form-input" required style="flex-grow: 1;">
+                        <label class="btn-action-edit" style="cursor: pointer; display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0;">
+                            📁 Chọn từ máy
+                            <input type="file" accept="image/*" style="display: none;" onchange="handleSingleFileUpload(event, 'memImgUrl')">
+                        </label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">💾 Lưu Thay Đổi</button>
+            </form>
+        </div>
+    <!-- MODAL ADD / EDIT REGISTERED USER ACCOUNT -->
+    <div class="modal-overlay" id="userAccountFormModal">
+        <div class="modal-box" style="max-width: 440px;">
+            <button class="modal-close" onclick="closeModal('userAccountFormModal')">&times;</button>
+            <h3 style="font-size: 1.5rem; margin-bottom: 16px;" id="userAccountModalTitle">📝 Thêm Tài Khoản Người Dùng Mới</h3>
+            <form onsubmit="saveUserAccountForm(event)">
+                <input type="hidden" id="userAccEditIndex" value="-1">
+                <div class="form-group">
+                    <label class="form-label">Họ và tên người dùng *</label>
+                    <input type="text" id="userAccFullNameInput" class="form-input" placeholder="Ví dụ: Nguyễn Văn An" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Tên đăng nhập / Số điện thoại *</label>
+                    <input type="text" id="userAccUserInput" class="form-input" placeholder="Tên đăng nhập hoặc 0912..." required>
+                </div>
+                <div class="form-group" style="margin-bottom: 24px;">
+                    <label class="form-label">Mật khẩu tài khoản *</label>
+                    <input type="text" id="userAccPassInput" class="form-input" placeholder="Nhập mật khẩu..." required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">💾 Lưu Tài Khoản</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>
