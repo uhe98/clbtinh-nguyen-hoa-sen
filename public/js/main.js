@@ -582,8 +582,12 @@ async function loadActivities() {
                 needsSave = true;
             }
             list.forEach(a => {
-                if (!a.hinhAnh || a.hinhAnh.includes('banner') || a.hinhAnh.includes('charity') || a.hinhAnh.includes('workshop') || a.hinhAnh.includes('env') || a.hinhAnh.includes('student')) {
-                    const nameLower = (a.tenHoatDong || '').toLowerCase();
+                if (a.hinhAnh && a.hinhAnh.startsWith('/')) {
+                    a.hinhAnh = a.hinhAnh.substring(1);
+                    needsSave = true;
+                }
+                const nameLower = (a.tenHoatDong || '').toLowerCase();
+                if (!a.hinhAnh || a.hinhAnh.includes('banner') || a.hinhAnh.includes('charity') || a.hinhAnh.includes('workshop') || a.hinhAnh.includes('env') || a.hinhAnh.includes('student') || a.hinhAnh.includes('pres')) {
                     if (nameLower.includes('cà rốt')) a.hinhAnh = 'images/carrots_support.jpg';
                     else if (nameLower.includes('hiến máu')) a.hinhAnh = 'images/hienmau.jpg';
                     else if (nameLower.includes('trung thu')) a.hinhAnh = 'images/trungthu.jpg';
@@ -600,10 +604,13 @@ async function loadActivities() {
             }
 
             if (list) {
-                grid.innerHTML = list.filter(a => a.status !== 'Ẩn').map(act => `
+                grid.innerHTML = list.filter(a => a.status !== 'Ẩn').map(act => {
+                    let cleanSrc = act.hinhAnh || 'images/anh 1.jpg';
+                    if (cleanSrc.startsWith('/')) cleanSrc = cleanSrc.substring(1);
+                    return `
                     <div class="activity-card">
                         <div class="card-img-holder">
-                            <img src="${act.hinhAnh}" alt="${act.tenHoatDong}">
+                            <img src="${cleanSrc}" alt="${act.tenHoatDong}">
                         </div>
                         <div class="card-body">
                             <h3 class="card-title">${act.tenHoatDong}</h3>
@@ -611,7 +618,8 @@ async function loadActivities() {
                             <a href="javascript:void(0)" class="card-link js-open-register">Đồng hành ngay ➔</a>
                         </div>
                     </div>
-                `).join('');
+                    `;
+                }).join('');
             }
         } catch (e) {}
     }
@@ -646,13 +654,13 @@ async function loadMembers() {
                     needsSave = true;
                 }
             }
-            if (m.id === 4 || m.hoTen.includes('Trần Kim Khánh')) {
+            if (m.id === 4 || (m.hoTen && m.hoTen.includes('Trần Kim Khánh'))) {
                 if (m.chucVu !== 'Trưởng Ban Nhiệm Vụ') {
                     m.chucVu = 'Trưởng Ban Nhiệm Vụ';
                     needsSave = true;
                 }
             }
-            if (m.id === 8 || m.hoTen.includes('Chu Thị Phúc')) {
+            if (m.id === 8 || (m.hoTen && m.hoTen.includes('Chu Thị Phúc'))) {
                 if (m.chucVu !== 'Thủ Quỹ - Ban Thủ Quỹ - Bán Hàng') {
                     m.chucVu = 'Thủ Quỹ - Ban Thủ Quỹ - Bán Hàng';
                     needsSave = true;
@@ -661,7 +669,7 @@ async function loadMembers() {
             if (m.hoTen) {
                 const nameClean = m.hoTen.replace('Đ/c ', '').trim().toLowerCase();
                 if (officialAvatarMap[nameClean]) {
-                    if (!m.hinhAnh || m.hinhAnh.includes('pres.jpg') || m.hinhAnh.includes('vpres.jpg') || m.hinhAnh.includes('charity.jpg') || m.hinhAnh.includes('workshop.jpg') || m.hinhAnh.includes('student.jpg') || m.hinhAnh.includes('env.jpg')) {
+                    if (m.hinhAnh !== officialAvatarMap[nameClean]) {
                         m.hinhAnh = officialAvatarMap[nameClean];
                         needsSave = true;
                     }
