@@ -69,7 +69,7 @@ let activitiesList = [
 let membersList = [
     { id: 1, hoTen: 'Đ/c Bùi Cẩm Trang', chucVu: 'Phó Bí thư Đoàn trường, Chủ nhiệm CLB', banNganh: 'Ban Điều Hành', cauNoi: 'Lãnh đạo bằng tình yêu thương và trách nhiệm vì cộng đồng.', hinhAnh: 'images/trang.jpg' },
     { id: 2, hoTen: 'Đ/c Mạc Thị Cẩm Ly', chucVu: 'Phó Chủ nhiệm CLB, Trưởng Ban Tổ Chức - Kế Hoạch', banNganh: 'Ban Tổ Chức', cauNoi: 'Kế hoạch chu đáo là nền tảng cho mọi hành trình tình nguyện thành công.', hinhAnh: 'images/ly1.jpg' },
-    { id: 3, hoTen: 'Đ/c Nguyễn Văn Thuận', chucVu: 'Phó Chủ nhiệm CLB', banNganh: 'Ban Điều Hành', cauNoi: 'Đồng lòng cống hiến, lan tỏa sức trẻ tình nguyện.', hinhAnh: 'images/thuan.jpg' },
+    { id: 3, hoTen: 'Đ/c Nguyễn Văn Thuận', chucVu: 'Phó Chủ nhiệm CLB, Trưởng Ban Thủ Quỹ - Bán Hàng', banNganh: 'Ban Điều Hành', cauNoi: 'Đồng lòng cống hiến, lan tỏa sức trẻ tình nguyện.', hinhAnh: 'images/thuan.jpg' },
     { id: 4, hoTen: 'Đ/c Trần Kim Khánh', chucVu: 'Trưởng Ban Nhiệm Vụ', banNganh: 'Ban Nhiệm Vụ', cauNoi: 'Sẵn sàng nhận nhiệm vụ, sẵn sàng cống hiến hết mình.', hinhAnh: 'images/khanh.png' },
     { id: 5, hoTen: 'Đ/c Lê Thanh Minh', chucVu: 'Trưởng Ban Phong Trào - Truyền Thông', banNganh: 'Ban Truyền Thông', cauNoi: 'Lan tỏa câu chuyện tử tế đến với hàng triệu trái tim.', hinhAnh: 'images/minh.jpg' },
     { id: 6, hoTen: 'Đ/c Nguyễn Đức Anh', chucVu: 'Trưởng Ban Thể Thao', banNganh: 'Ban Thể Thao', cauNoi: 'Rèn luyện thể lực, thắt chặt tinh thần đồng đội nhiệt huyết.', hinhAnh: 'images/anh.jpg' },
