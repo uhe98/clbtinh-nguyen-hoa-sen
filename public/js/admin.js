@@ -6,11 +6,18 @@ const DEFAULT_ADMIN_USER = 'admin';
 const DEFAULT_ADMIN_PASS = 'admin123';
 
 const OFFICIAL_SLIDES = [
-    'images/banner1.jpg',
-    'images/banner2.jpg',
-    'images/banner3.jpg',
-    'images/banner4.jpg',
-    'images/banner5.jpg'
+    'images/carrots_support.jpg',
+    'images/anh 1.jpg',
+    'images/anh 2.jpg',
+    'images/anh 3.jpg',
+    'images/anh 5.jpg',
+    'images/anh 6.jpg',
+    'images/anh 7.jpg',
+    'images/anh 8.jpg',
+    'images/hienmau.jpg',
+    'images/trungthu.jpg',
+    'images/xuanam.jpg',
+    'images/dongchay.jpg'
 ];
 
 const INITIAL_MEMBERS = [

@@ -3,15 +3,18 @@
  */
 
 const OFFICIAL_SLIDES = [
-    'images/banner1.jpg',
-    'images/banner2.jpg',
-    'images/banner3.jpg',
-    'images/banner4.jpg',
-    'images/banner5.jpg',
-    'images/banner6.jpg',
-    'images/banner7.jpg',
-    'images/banner8.jpg',
-    'images/banner9.jpg'
+    'images/carrots_support.jpg',
+    'images/anh 1.jpg',
+    'images/anh 2.jpg',
+    'images/anh 3.jpg',
+    'images/anh 5.jpg',
+    'images/anh 6.jpg',
+    'images/anh 7.jpg',
+    'images/anh 8.jpg',
+    'images/hienmau.jpg',
+    'images/trungthu.jpg',
+    'images/xuanam.jpg',
+    'images/dongchay.jpg'
 ];
 
 const OFFICIAL_FB = 'https://www.facebook.com/share/1JYARBM1M1/?mibextid=wwXIfr';
@@ -482,10 +485,10 @@ async function loadDynamicContent() {
             let fullData = JSON.parse(saved);
             let data = fullData.content || {};
 
-            if (!data.HERO_SLIDES || data.HERO_SLIDES.length === 0) {
+            if (!data.HERO_SLIDES || data.HERO_SLIDES.length === 0 || data.HERO_SLIDES.some(s => s.includes('banner'))) {
                 data.HERO_SLIDES = OFFICIAL_SLIDES;
             }
-            if (!data.ABOUT_IMAGES || data.ABOUT_IMAGES.length === 0) {
+            if (!data.ABOUT_IMAGES || data.ABOUT_IMAGES.length === 0 || data.ABOUT_IMAGES.some(s => s.includes('banner'))) {
                 data.ABOUT_IMAGES = OFFICIAL_SLIDES;
             }
 
