@@ -581,10 +581,19 @@ async function loadActivities() {
                 list.push({ id: 5, tenHoatDong: 'Xuân ấm tình thương', moTaNgan: 'Trao tặng những phần quà Tết ý nghĩa, áo ấm và nhu yếu phẩm đến các hộ gia đình và trẻ em có hoàn cảnh khó khăn.', hinhAnh: 'images/xuanam.jpg', status: 'Còn hoạt động' });
                 needsSave = true;
             }
-            if (!list.some(a => a.tenHoatDong && a.tenHoatDong.includes('cà rốt'))) {
-                list.unshift({ id: 6, tenHoatDong: '🥕 Chung tay hỗ trợ tiêu thụ cà rốt Hải Phòng', moTaNgan: 'Chung tay cùng bà con nông dân kết nối, thu mua và hỗ trợ tiêu thụ nông sản cà rốt Hải Phòng.', hinhAnh: 'images/carrots_support.jpg', status: 'Còn hoạt động' });
-                needsSave = true;
-            }
+            list.forEach(a => {
+                if (!a.hinhAnh || a.hinhAnh.includes('banner') || a.hinhAnh.includes('charity') || a.hinhAnh.includes('workshop') || a.hinhAnh.includes('env') || a.hinhAnh.includes('student')) {
+                    const nameLower = (a.tenHoatDong || '').toLowerCase();
+                    if (nameLower.includes('cà rốt')) a.hinhAnh = 'images/carrots_support.jpg';
+                    else if (nameLower.includes('hiến máu')) a.hinhAnh = 'images/hienmau.jpg';
+                    else if (nameLower.includes('trung thu')) a.hinhAnh = 'images/trungthu.jpg';
+                    else if (nameLower.includes('bếp hồng') || nameLower.includes('cháo')) a.hinhAnh = 'images/dongchay.jpg';
+                    else if (nameLower.includes('xuân ấm')) a.hinhAnh = 'images/xuanam.jpg';
+                    else a.hinhAnh = 'images/anh 1.jpg';
+                    needsSave = true;
+                }
+            });
+
             if (needsSave) {
                 fullData.activities = list;
                 localStorage.setItem('CLB_HOA_SEN_APP_DATA', JSON.stringify(fullData));
