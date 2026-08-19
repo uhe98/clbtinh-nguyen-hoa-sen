@@ -54,7 +54,7 @@ let siteContent = {
     CONTACT_ADDRESS: 'Số 3 Vũ Công Đán, phường Tứ Minh, TP. Hải Phòng',
     SOCIAL_FB: 'https://www.facebook.com/share/1JYARBM1M1/?mibextid=wwXIfr',
     SOCIAL_ZALO: 'https://zalo.me/0123456789',
-    HERO_IMG: 'images/banner1.jpg',
+    HERO_IMG: 'images/carrots_support.jpg',
     LOGO_IMG: 'images/logo.png'
 };
 

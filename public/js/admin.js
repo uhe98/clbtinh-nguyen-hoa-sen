@@ -809,7 +809,7 @@ function openAddActivityModal() {
     document.getElementById('actId').value = '';
     document.getElementById('actName').value = '';
     document.getElementById('actDesc').value = '';
-    document.getElementById('actImgUrl').value = 'images/banner1.jpg';
+    document.getElementById('actImgUrl').value = 'images/carrots_support.jpg';
     document.getElementById('activityFormModal').classList.add('active');
 }
 
@@ -839,7 +839,7 @@ function saveActivityForm(e) {
             showToast('✅ Đã cập nhật hoạt động!', 'success');
         }
     } else {
-        const newAct = { id: Date.now(), tenHoatDong: name, moTaNgan: desc, hinhAnh: imgUrl || 'images/banner1.jpg', status: 'Còn hoạt động' };
+        const newAct = { id: Date.now(), tenHoatDong: name, moTaNgan: desc, hinhAnh: imgUrl || 'images/carrots_support.jpg', status: 'Còn hoạt động' };
         appData.activities.push(newAct);
         showToast('🎉 Đã thêm hoạt động mới!', 'success');
     }
@@ -891,7 +891,7 @@ function openAddMemberModal() {
     document.getElementById('memName').value = '';
     document.getElementById('memRole').value = '';
     document.getElementById('memQuote').value = '';
-    document.getElementById('memImgUrl').value = 'images/pres.jpg';
+    document.getElementById('memImgUrl').value = 'images/trang.jpg';
     document.getElementById('memberFormModal').classList.add('active');
 }
 
@@ -923,7 +923,7 @@ function saveMemberForm(e) {
             showToast('✅ Đã cập nhật thành viên!', 'success');
         }
     } else {
-        const newM = { id: Date.now(), hoTen: name, chucVu: role, cauNoi: quote, hinhAnh: imgUrl || 'images/pres.jpg' };
+        const newM = { id: Date.now(), hoTen: name, chucVu: role, cauNoi: quote, hinhAnh: imgUrl || 'images/trang.jpg' };
         appData.members.push(newM);
         showToast('🎉 Đã thêm thành viên mới!', 'success');
     }
