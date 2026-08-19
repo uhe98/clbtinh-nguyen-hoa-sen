@@ -54,15 +54,16 @@ let siteContent = {
     CONTACT_ADDRESS: 'Số 3 Vũ Công Đán, phường Tứ Minh, TP. Hải Phòng',
     SOCIAL_FB: 'https://www.facebook.com/share/1JYARBM1M1/?mibextid=wwXIfr',
     SOCIAL_ZALO: 'https://zalo.me/0123456789',
-    HERO_IMG: '/images/hero.jpg',
-    LOGO_IMG: '/images/logo.png'
+    HERO_IMG: 'images/banner1.jpg',
+    LOGO_IMG: 'images/logo.png'
 };
 
 let activitiesList = [
-    { id: 1, tenHoatDong: 'Hiến máu tình nguyện', danhMuc: 'Y Tế & Cộng Đồng', moTaNgan: 'Giọt máu cho đi - Một đời ở lại. Chương trình hiến máu nhân đạo thu hút đông đảo tình nguyện viên.', hinhAnh: '/images/charity.jpg' },
-    { id: 2, tenHoatDong: 'Trung thu cho em', danhMuc: 'Từ Thiện Trẻ Em', moTaNgan: 'Mang Tết Trung thu ấm áp, lồng đèn rực rỡ và phần quà ý nghĩa đến các em nhỏ khó khăn.', hinhAnh: '/images/workshop.jpg' },
-    { id: 3, tenHoatDong: 'Xuân ấm tình thương', danhMuc: 'Chiến Dịch Thường Niên', moTaNgan: 'Trao tặng áo ấm, nhu yếu phẩm Tết cho người già cô đơn và gia đình nghèo vùng khó.', hinhAnh: '/images/env.jpg' },
-    { id: 4, tenHoatDong: 'Dòng chảy bếp hồng', danhMuc: 'Suất Ăn 0 Đồng', moTaNgan: 'Nấu những bữa ăn nóng hổi, tiếp sức cho bệnh nhân và người lao động nghèo trên địa bàn.', hinhAnh: '/images/student.jpg' }
+    { id: 6, tenHoatDong: '🥕 Chung tay hỗ trợ tiêu thụ cà rốt Hải Phòng', danhMuc: 'Nông Sản Tình Nguyện', moTaNgan: 'Chung tay cùng bà con nông dân kết nối, thu mua và hỗ trợ tiêu thụ nông sản cà rốt Hải Phòng.', hinhAnh: 'images/carrots_support.jpg' },
+    { id: 1, tenHoatDong: 'Hiến máu tình nguyện', danhMuc: 'Y Tế & Cộng Đồng', moTaNgan: 'Giọt máu cho đi - Một đời ở lại. Chương trình hiến máu nhân đạo thu hút đông đảo tình nguyện viên.', hinhAnh: 'images/hienmau.jpg' },
+    { id: 2, tenHoatDong: 'Trung thu cho em', danhMuc: 'Từ Thiện Trẻ Em', moTaNgan: 'Mang Tết Trung thu ấm áp, lồng đèn rực rỡ và phần quà ý nghĩa đến các em nhỏ khó khăn.', hinhAnh: 'images/trungthu.jpg' },
+    { id: 3, tenHoatDong: 'Xuân ấm tình thương', danhMuc: 'Chiến Dịch Thường Niên', moTaNgan: 'Trao tặng áo ấm, nhu yếu phẩm Tết cho người già cô đơn và gia đình nghèo vùng khó.', hinhAnh: 'images/xuanam.jpg' },
+    { id: 4, tenHoatDong: 'Dòng chảy bếp hồng', danhMuc: 'Suất Ăn 0 Đồng', moTaNgan: 'Nấu những bữa ăn nóng hổi, tiếp sức cho bệnh nhân và người lao động nghèo trên địa bàn.', hinhAnh: 'images/dongchay.jpg' }
 ];
 
 let membersList = [

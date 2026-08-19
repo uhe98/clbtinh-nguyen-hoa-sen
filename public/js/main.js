@@ -7,11 +7,7 @@ const OFFICIAL_SLIDES = [
     'images/banner2.jpg',
     'images/banner3.jpg',
     'images/banner4.jpg',
-    'images/banner5.jpg',
-    'images/banner6.jpg',
-    'images/banner7.jpg',
-    'images/banner8.jpg',
-    'images/banner9.jpg'
+    'images/banner5.jpg'
 ];
 
 const OFFICIAL_FB = 'https://www.facebook.com/share/1JYARBM1M1/?mibextid=wwXIfr';
